@@ -1,0 +1,38 @@
+body {
+  background-color: #E4BFBA;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: min-content min-content min-content min-content
+  min-content min-content min-content min-content min-content min-content min-content min-content
+  min-content min-content min-content min-content ;
+  padding: 100px;
+}
+
+.gridPiece {
+  height: 25px;
+  width: 25px;
+  border: #BFBAE4;
+  border-style: groove;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
