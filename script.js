@@ -14,11 +14,13 @@ const btn = document.querySelector('.btn');
   gridPiece.addEventListener('mouseover', function () {
     gridPiece.style.backgroundColor = '#BAE4BF';
   });
-  btn.addEventListener('click', () => {
-      clearPage();
-      newGrid ();
-    });
 })
+
+btn.addEventListener('click', () => {
+  clearPage();
+  let k = prompt('How many squares per side?', '16');
+  newGrid (k);
+});
 
 function clearPage() {
   while (mainDiv.firstChild) {
@@ -26,15 +28,29 @@ function clearPage() {
   }
 }
 
-function newGrid() {
-  let k = prompt('How many squares per side?', '16');
+function newGrid(k) {
+  
   let j = parseInt(k*k);
-  for (let i = 0; i < j; i++) {
-    console.log('ye');
-    let grid = document.createElement('div');
-    grid.classList.add('gridPiece');
-    mainDiv.appendChild(grid);
+
+  if (k <= 100) {
+    for (let i = 0; i < j; i++) {
+      let grid = document.createElement('div');
+      grid.classList.add('gridPiece');
+      mainDiv.appendChild(grid);
+    }
+  } else {
+    alert("Please choose a number less than or equal to 100.");
+    for (let i = 0; i < 256; i++) {
+      let grid = document.createElement('div');
+      grid.classList.add('gridPiece');
+      mainDiv.appendChild(grid);
+    }
   }
 
+  [...document.querySelectorAll('.gridPiece')].forEach((gridPiece) =>{
+    gridPiece.addEventListener('mouseover', function () {
+      gridPiece.style.backgroundColor = '#BAE4BF';
+    });
+  })
   
 }
