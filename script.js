@@ -1,4 +1,5 @@
 const mainDiv = document.querySelector('.container');
+const r = document.querySelector(':root');
 
 for (let i = 0; i < 256; i++) {
   let grid = document.createElement('div');
@@ -20,6 +21,7 @@ btn.addEventListener('click', () => {
   clearPage();
   let k = prompt('How many squares per side?', '16');
   newGrid (k);
+  r.style.setProperty('--column', `repeat(${k}, 1fr)`);
 });
 
 function clearPage() {
